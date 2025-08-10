@@ -1,0 +1,20 @@
+/* Sayfa boyutu ve kenar boşlukları */
+@page {
+  size: A4;
+  margin: 20mm;
+  @bottom-right { content: counter(page); }         /* alt sağda sayfa numarası */
+  @top-center   { content: string(docTitle); }      /* üst ortada koşan başlık */
+}
+
+/* Başlığı koşan başlık olarak ayarla (string-set) */
+h1#title {
+  string-set: docTitle content(text);
+}
+
+/* Ekranda okunabilirlik için basit stillerrr */
+body { font-family: system-ui, sans-serif; line-height: 1.5; }
+h1 { margin: 0 0 8mm; }
+h2 { margin-top: 10mm; }
+
+/* Manuel sayfa kırımı örneği */
+.page-break { break-before: page; }
