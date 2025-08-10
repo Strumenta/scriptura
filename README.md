@@ -8,3 +8,4 @@ Scriptura is a Python-based command-line tool designed to simplify and standardi
 It uses Paged.js to transform modular HTML and CSS content into high-quality, print-ready documents.
 
 This repository is used to practice the Git flow (branch → commit → PR).
+This repository is used to practice the Git flow.
