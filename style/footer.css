@@ -1,33 +1,13 @@
-/* Sayfanın alt ortasında sayfa numarası */
+/* ===== Running header & page number ===== */
+/* Son görülen H1/H2 metnini "runningTitle" string'ine yaz */
+h1, h2 { string-set: runningTitle content(text); }
+
+/* Tüm normal sayfalarda üstte koşan başlık, altta sayfa numarası */
 @page {
-  @bottom-center {
-    content: "Sayfa " counter(page) " / " counter(pages);
-    font-size: 10pt;
-    color: #555;
-  }
+  @top-center   { content: string(runningTitle); }
+  @bottom-right { content: counter(page); }
 }
 
-/* Alt sol köşede rapor başlığı */
-@page {
-  @bottom-left {
-    content: string(docTitle);
-    font-size: 9pt;
-    color: #888;
-  }
-}
-
-/* Alt sağ köşede tarih */
-@page {
-  @bottom-right {
-    content: "Tarih: " counter(date);
-    font-size: 9pt;
-    color: #888;
-  }
-}
-
-/* Başlığı kaynak olarak belirle */
-h1#title {
-  string-set: docTitle content(text);
-}
-
-/* Tarihi otomatik almak için küçük JS eklersin, burada CSS kısmı */
+/* İstersen alternatif (ikisini birlikte alt ortada):
+@page { @bottom-center { content: string(runningTitle) " — " counter(page); } }
+*/

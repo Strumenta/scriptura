@@ -3,10 +3,13 @@
 
     /* Kapak sayfası şablonu: footer kapalı */
     @page cover {
-      size: Letter;
+      size: A4;
       margin: 0;
       /* profesyonel baskı gerekiyorsa aç:
          bleed: 6mm; marks: crop; */
+      @top-left      { content: none; }
+      @top-center    { content: none; }  /* ← tepedeki yazıyı kapatır */
+      @top-right     { content: none; }
       @bottom-left   { content: none; }
       @bottom-center { content: none; }
       @bottom-right  { content: none; }
