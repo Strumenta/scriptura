@@ -1,0 +1,99 @@
+/* ==== COVER: ortalı başlık, prepared-for, sağ üstte produced by ==== */
+@media print {
+
+    /* Kapak sayfası şablonu: footer kapalı */
+    @page cover {
+      size: Letter;
+      margin: 0;
+      /* profesyonel baskı gerekiyorsa aç:
+         bleed: 6mm; marks: crop; */
+      @bottom-left   { content: none; }
+      @bottom-center { content: none; }
+      @bottom-right  { content: none; }
+    }
+  
+    /* Kapak bölümü grid ile tam sayfa ortalama */
+    .cover {
+      page: cover;
+      break-before: page;
+      min-height: 100vh;
+  
+      /* Kenarlardan güvenli boşluk (metinlerin taşmaması için) */
+      padding: 30mm 25mm;
+  
+      /* içerikleri tam ortala */
+      display: grid;
+      place-items: center;
+      text-align: center;
+      position: relative;
+    }
+  
+    /* Üst sağ: Produced by + logo bloğu */
+    .cover .producer {
+      position: absolute;
+      top: 25mm;
+      right: 25mm;
+      text-align: right;
+      font-size: 10pt;
+      color: #666;
+    }
+    .cover .producer .label {
+      letter-spacing: .02em;
+    }
+    .cover .producer .logo {
+      display: block;
+      margin-top: 4mm;
+      height: 18mm;              /* logonun yüksekliğini buradan yönet */
+      object-fit: contain;
+    }
+  
+    /* Orta blok (kicker, ana başlık, alt başlık, prepared-for) */
+    .cover .kicker {
+      font-size: 12pt;
+      color: #666;
+      margin-bottom: 6mm;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+  
+    .cover h1#title {
+      font-size: 26pt;
+      line-height: 1.15;
+      margin: 0 0 6mm;
+      font-weight: 800;
+      color: #222;
+      /* sonraki sayfalarda koşan başlık için hazırla */
+      string-set: docTitle content(text);
+    }
+  
+    .cover .subtitle {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #444;
+      margin: 0 0 18mm;
+    }
+  
+    .cover .prepared {
+      display: inline-block;
+      padding: 4mm 8mm;
+      border-radius: 4mm;
+      background: #f2f4f7;       /* açık gri kutu */
+      color: #555;
+      font-size: 11pt;
+    }
+  
+    /* İsteğe bağlı: alt kısımda dekoratif görsel varsa tam genişlik göster */
+    .cover .decoration {
+      position: absolute;
+      left: 25mm;
+      right: 25mm;
+      bottom: 20mm;
+    }
+    .cover .decoration img {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0.85;
+    }
+  }
+  
