@@ -1,3 +1,13 @@
+/* === Moved from style.css === */
+/* Page size & margins */
+@page {
+  size: A4;
+  margin: 20mm;
+}
+
+/* Ensure document title is available as a running string */
+h1#title { string-set: docTitle content(text); }
+
 /* ===== Running header & page number ===== */
 /* Son görülen H1/H2 metnini "runningTitle" string'ine yaz */
 h1, h2 { string-set: runningTitle content(text); }
