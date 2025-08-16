@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/scriptura/__init__.py
+src/scriptura/cli.py
+src/scriptura.egg-info/PKG-INFO
+src/scriptura.egg-info/SOURCES.txt
+src/scriptura.egg-info/dependency_links.txt
+src/scriptura.egg-info/entry_points.txt
+src/scriptura.egg-info/requires.txt
+src/scriptura.egg-info/top_level.txt
+src/scriptura/templates/report_wrapper.html.j2

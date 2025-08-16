@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: scriptura
+Version: 0.1.0
+Summary: Modular report builder (HTML → PDF via Paged.js)
+Requires-Python: >=3.9
+Requires-Dist: typer>=0.12
+Requires-Dist: jinja2>=3.1
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: beautifulsoup4>=4.12
+Requires-Dist: lxml>=5.2
+Provides-Extra: pdf
+Requires-Dist: playwright>=1.44; extra == "pdf"

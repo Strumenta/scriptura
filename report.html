@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <title>Deneme Raporu</title>
+
+  <!-- Tema dosyaları  buraya hepsiini ekledik -->
+  <link rel="stylesheet" href="style/general.css" />
+  <link rel="stylesheet" href="style/numbering.css" />
+  <link rel="stylesheet" href="style/footer.css" />
+  <link rel="stylesheet" href="style/cover.css" />
+  <link rel="stylesheet" href="style/last-page.css" />
+  <script>
+    window.PagedConfig = {
+      before: async () => {
+        console.log("Starting to load the content from the sections")
+        const moduleFiles = [
+          "./sections/section.html",
+          "./sections/section2.html",
+          "./sections/section3.html",
+          "./sections/section4.html",
+          "./sections/section5.html",
+          "./sections/section6.html",
+        ];
+        for (const file of moduleFiles) {
+            console.log("Now I will copy the content of file", file);
+          const response = await fetch(file);
+          const content = await response.text();
+          console.log("Content of file", file, " is ", content);
+          const container = document.createElement("div");
+          container.innerHTML = content;
+          document.body.insertBefore(container,document.getElementById("end"));
+        }
+          console.log("All done, we copied everything");
+      },
+    };
+   </script>
+  <!-- Paged.js polyfill -->
+  <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+</head>
+<body>
+  <!-- KAPAK (numara/koşan başlık yok) -->
+  <section class="cover">
+    <h1 id="title">Deneme Raporuu</h1>
+    <p class="meta">Zührenur İyidoğan — 2025-08-14</p>
+  </section>
+  <!-- Yeni sayfa -->
+
+  <!-- SON SAYFA (numara/koşan başlık yok) -->
+  <section id="end" class="last-page">
+    <h1>Teşekkürler</h1>
+    <p>Okuduğunuz için teşekkürler.</p>
+  </section>
+
+</body>
+</html>

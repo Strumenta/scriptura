@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ meta.title or "Rapor" }}</title>
+
+  {% if href_base %}
+    <link rel="stylesheet" href="{{ href_base }}/general.css" />
+    <link rel="stylesheet" href="{{ href_base }}/numbering.css" />
+    <link rel="stylesheet" href="{{ href_base }}/footer.css" />
+    <link rel="stylesheet" href="{{ href_base }}/cover.css" />
+    <link rel="stylesheet" href="{{ href_base }}/last-page.css" />
+  {% elif theme_base_url %}
+    <link rel="stylesheet" href="{{ theme_base_url.rstrip('/') }}/general.css" />
+    <link rel="stylesheet" href="{{ theme_base_url.rstrip('/') }}/numbering.css" />
+    <link rel="stylesheet" href="{{ theme_base_url.rstrip('/') }}/footer.css" />
+    <link rel="stylesheet" href="{{ theme_base_url.rstrip('/') }}/cover.css" />
+    <link rel="stylesheet" href="{{ theme_base_url.rstrip('/') }}/last-page.css" />
+  {% endif %}
+
+  <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+  <style>.page-break{break-after:page}</style>
+</head>
+<body>
+  {% if meta.cover is not defined or meta.cover %}
+  <section class="cover unnumbered">
+    <h1 id="title">{{ meta.title or "Demo Report" }}</h1>
+    <p class="meta">{{ meta.author or "" }}{% if meta.date %} — {{ meta.date }}{% endif %}</p>
+  </section>
+  <div class="page-break"></div>
+  {% endif %}
+
+  {% for html in sections %}
+    {{ html | safe }}
+    {% if not loop.last %}<div class="page-break"></div>{% endif %}
+  {% endfor %}
+
+  {% if meta.last_page is not defined or meta.last_page %}
+  <section class="last-page unnumbered" id="end">
+    <h1>Teşekkürler</h1>
+    <p>Okuduğunuz için teşekkürler.</p>
+  </section>
+  {% endif %}
+</body>
+</html>

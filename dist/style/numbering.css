@@ -1,0 +1,60 @@
+/* Reset the counter on the body or a container that wraps your content sections */
+body {
+  counter-reset: chapter 0; /* Ensures chapter starts at 0 before any h1 increments it */
+}
+
+/* Numbering for H1 (Sections) - ONLY for H1s NOT in the cover */
+section:not(.cover):not(.unnumbered) > h1 {
+  counter-increment: chapter;
+  counter-reset: section subsection;
+}
+
+section:not(.cover):not(.unnumbered) > h1::before {
+  content: "Section " counter(chapter) " - ";
+  font-weight: 600;
+}
+
+section:not(.cover):not(.unnumbered) > h2 {
+  counter-increment: section;
+  counter-reset: subsection;
+}
+
+section:not(.cover):not(.unnumbered) > h2::before {
+  content: counter(chapter) "." counter(section) " - ";
+  font-weight: 600;
+}
+
+section:not(.cover):not(.unnumbered) > h3 {
+  counter-increment: subsection;
+  counter-reset: paragraph;
+}
+
+section:not(.cover):not(.unnumbered) > h3::before {
+  content: counter(chapter) "." counter(section) "." counter(subsection) " - ";
+  font-weight: 600;
+}
+
+section:not(.cover):not(.unnumbered) > h4 {
+  counter-increment: paragraph;
+}
+
+section:not(.cover):not(.unnumbered) > h4::before {
+  content: counter(chapter) "." counter(section) "." counter(subsection) "."
+    counter(paragraph) " - ";
+  font-weight: 600;
+}
+
+/* COVER: suppress heading numbering - ensure no counter side effects here */
+section.cover h1 {
+  /* No counter-increment or reset needed here, as the general rule excludes it */
+  content: none !important; /* To hide any potential :before content if it were to appear */
+}
+
+section.cover .title-section h1::before {
+  content: none !important; /* Explicitly hide the generated number on the cover title */
+}
+
+h1,
+h2 {
+  string-set: sectionTitle content();
+}
