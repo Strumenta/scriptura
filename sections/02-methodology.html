@@ -1,0 +1,57 @@
+<section class="page-break">
+  <h1>Methodology</h1>
+
+  <h2>Data</h2>
+  <ul>
+    <li><strong>Events:</strong> explicit ratings and implicit signals (views, likes).</li>
+    <li><strong>Items:</strong> title, year, genres (multi-label), cast/crew (optional), plot keywords.</li>
+    <li><strong>Users:</strong> anonymized IDs; no demographic features are required.</li>
+  </ul>
+
+  <h3>Preprocessing</h3>
+  <ul>
+    <li>Trim extreme users/items (too few interactions) to reduce sparsity.</li>
+    <li>Map IDs to contiguous integers; split by user into train/validation/test (80/10/10).</li>
+    <li>Build an <em>implicit feedback</em> matrix (watch ≥ x minutes → positive) and an explicit rating matrix.</li>
+    <li>Normalize textual features; one-hot or multi-hot encode genres; TF-IDF for keywords/overview.</li>
+  </ul>
+
+  <h2>Models</h2>
+  <h3>Baselines</h3>
+  <ul>
+    <li><strong>Popularity@K:</strong> recommend globally popular movies.</li>
+    <li><strong>User kNN:</strong> cosine similarity between user vectors.</li>
+  </ul>
+
+  <h3>Content-Based</h3>
+  <p>
+    Represent each movie with a feature vector (genres + TF-IDF keywords). For a user, aggregate watched items
+    (e.g., weighted average) to form a user profile; rank items by cosine similarity.
+  </p>
+
+  <h3>Collaborative (Matrix Factorization)</h3>
+  <p>
+    Learn latent factors for users (<em>U</em>) and items (<em>V</em>) by minimizing a regularized loss on observed interactions.
+    We use an implicit formulation (ALS or BPR) for ranking; for ratings we report classical MF/RMSE as a reference.
+  </p>
+
+  <h3>Hybrid</h3>
+  <ul>
+    <li><strong>Score blending:</strong> <code>score = α · CF + (1−α) · Content</code> with α tuned on validation.</li>
+    <li><strong>Feature-aware MF (optional):</strong> concatenate content embeddings with item factors.</li>
+  </ul>
+
+  <h2>Evaluation</h2>
+  <ul>
+    <li><strong>Top-K metrics:</strong> Precision@K, Recall@K, nDCG@K, MAP@K (K ∈ {5, 10}).</li>
+    <li><strong>Rating metric:</strong> RMSE (only for explicit models).</li>
+    <li><strong>Cold start:</strong> report metrics on users/items unseen in training.</li>
+  </ul>
+
+  <h2>Toolchain</h2>
+  <ul>
+    <li><strong>Python:</strong> pandas, NumPy, scikit-learn; implicit/LightFM for CF; Jinja2 + Paged.js for report.</li>
+    <li><strong>Serving sketch:</strong> offline batch training → export item/user embeddings →
+      approximate nearest neighbors (ANN) index (e.g., FAISS/Annoy) for fast retrieval; business rules applied in a re-ranker.</li>
+  </ul>
+</section>

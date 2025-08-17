@@ -1,0 +1,35 @@
+<section class="page-break">
+  <h1>Introduction</h1>
+  <p>
+    This report describes the design and evaluation of a <strong>film recommendation system</strong> that helps users
+    discover movies they are likely to enjoy. Recommenders are widely used in streaming platforms, dramatically
+    increasing engagement and watch time by surfacing relevant items within large catalogs.
+  </p>
+
+  <h2>Purpose</h2>
+  <p>
+    Our goal is to build a modular, production-friendly pipeline that can rank films for each user based on historical
+    interactions and content attributes. The system should support cold-start users/titles, scale to millions of events,
+    and produce business-meaningful metrics.
+  </p>
+
+  <h2>Scope</h2>
+  <ul>
+    <li>Offline model training and evaluation on a public dataset (e.g., MovieLens).</li>
+    <li>Ranking for Top-K recommendations; optional rating prediction for comparison.</li>
+    <li>Hybrid approach combining collaborative and content-based signals.</li>
+  </ul>
+
+  <h2>Out of Scope</h2>
+  <ul>
+    <li>UI/UX for a consumer app and A/B testing in production.</li>
+    <li>Hard real-time serving infrastructure (we simulate it offline).</li>
+  </ul>
+
+  <h2>Background</h2>
+  <p>
+    Collaborative filtering learns from user–item interactions, while content-based methods use item metadata
+    (genres, cast, keywords). Each has weaknesses (sparsity and cold start, respectively). A hybrid model can exploit
+    their strengths: learn latent preferences and still recommend reasonable items for new users/titles.
+  </p>
+</section>

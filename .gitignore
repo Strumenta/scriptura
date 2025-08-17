@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+dist/
+build/
+*.egg-info/
+.vscode/
+.DS_Store
+node_modules/

@@ -1,0 +1,31 @@
+<section class="page-break">
+  <h1>Discussion</h1>
+
+  <h2>Findings</h2>
+  <ul>
+    <li>The <strong>hybrid</strong> approach outperforms individual models on all Top-K metrics.</li>
+    <li>Content features mitigate <em>item cold start</em>; collaborative factors capture subtle taste.</li>
+    <li>Beyond ~128 latent dimensions, gains diminish relative to training time.</li>
+  </ul>
+
+  <h2>Error Analysis</h2>
+  <ul>
+    <li><em>Popularity bias:</em> over-recommending blockbusters lowers diversity.</li>
+    <li><em>Long-tail coverage:</em> niche titles need re-ranking with diversity constraints.</li>
+    <li><em>Temporal drift:</em> older interactions can misrepresent current taste without decay.</li>
+  </ul>
+
+  <h2>Limitations</h2>
+  <ul>
+    <li>Sparse feedback; few interactions for many users.</li>
+    <li>No causal evaluation; offline metrics may not correlate perfectly with CTR.</li>
+    <li>Limited item metadata (no full text/embeddings for trailers or posters).</li>
+  </ul>
+
+  <h2>Ethics & Responsible AI</h2>
+  <ul>
+    <li>Avoid filter bubbles by promoting calibrated diversity and serendipity.</li>
+    <li>Ensure transparency (why was this recommended?).</li>
+    <li>Respect privacy; use anonymized, minimally necessary data.</li>
+  </ul>
+</section>

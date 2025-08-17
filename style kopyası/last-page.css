@@ -1,0 +1,35 @@
+/* Son sayfa bölümü */
+.last-page {
+    page: end;                        /* adlandırılmış sayfa ustası */
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: 10mm;
+  }
+  
+  /* Son sayfa @page: tüm margin kutularını (running header/footer) kapat */
+  @page end {
+    @top-left      { content: none; }
+    @top-center    { content: none; }
+    @top-right     { content: none; }
+    @bottom-left   { content: none; }
+    @bottom-center { content: none; }
+    @bottom-right  { content: none; }
+  }
+  
+  /* Basit stil önerisi */
+  .last-page h1 {
+    font-size: 20pt;
+    color: var(--brand);
+    margin-bottom: 4mm;
+  }
+  .last-page p {
+    color: var(--muted);
+    font-size: 11pt;
+  }
+  
+  /* İsteğe bağlı: teşekkür/künye blokları */
+  .last-page .thanks { font-size: 12pt; margin-bottom: 6mm; }
+  .last-page .credits { font-size: 10pt; }
+  

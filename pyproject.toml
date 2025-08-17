@@ -1,0 +1,31 @@
+cat > pyproject.toml <<'EOF'
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scriptura"
+version = "0.1.0"
+description = "Modular report builder (HTML → PDF via Paged.js)"
+requires-python = ">=3.9"
+dependencies = [
+  "typer>=0.12",
+  "jinja2>=3.1",
+  "pyyaml>=6.0",
+  "beautifulsoup4>=4.12",
+  "lxml>=5.2"
+]
+[project.optional-dependencies]
+pdf = ["playwright>=1.44"]
+[project.scripts]
+scriptura = "scriptura.cli:app"
+
+[tool.setuptools]
+include-package-data = true
+# 🔧 Paket kökü 'src' ve paketleri AÇIKÇA listele
+package-dir = {"" = "src"}
+packages = ["scriptura"]
+
+[tool.setuptools.package-data]
+scriptura = ["templates/*.j2"]
+EOF

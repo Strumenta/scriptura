@@ -1,0 +1,63 @@
+/* ========== Tema değişkenleri (config ile override edilebilir) ========== */
+:root{
+  --brand: #0f766e;    /* link rengi vb. */
+  --text:  #222222;    /* metin rengi   */
+  --muted: #666666;    /* ikincil metin */
+  --page-bg: #ffffff;  /* sayfa zemini  */
+}
+
+/* ========== Temel tipografi ========== */
+html, body { margin: 0; padding: 0; }
+body {
+  color: var(--text);
+  background: var(--page-bg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 11pt;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 8mm;
+  line-height: 1.25;
+  font-weight: 600;
+}
+h1 { font-size: 20pt; }
+h2 { font-size: 16pt; }
+h3 { font-size: 13pt; }
+p  { margin: 0 0 6mm; }
+
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ========== Görsel / tablo / kod blokları ========== */
+img { max-width: 100%; height: auto; }
+figure { margin: 0 0 6mm; }
+figcaption { font-size: 10pt; color: var(--muted); }
+
+table { width: 100%; border-collapse: collapse; margin: 0 0 6mm; }
+th, td { border: 1px solid #ddd; padding: 6px 8px; }
+th { background: #f6f6f6; text-align: left; }
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 10pt;
+}
+pre { background: #f7f7f7; padding: 8px; border-radius: 4px; overflow: auto; }
+
+/* ========== Yardımcı sınıflar ========== */
+.page-break        { break-before: page; }   /* yeni sayfadan başlat */
+.avoid-break-inside{ break-inside: avoid; }  /* tablo/figure bölünmesin */
+
+/* ========== Paged.js ekran önizlemesi (sadece ekran) ========== */
+@media screen {
+  body { background: #f2f2f2; }              /* sayfa dışında gri zemin */
+  .pagedjs_page {
+    width: var(--pagedjs-width);
+    height: var(--pagedjs-height);
+    margin: 12px auto;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(0,0,0,.2);
+  }
+}
