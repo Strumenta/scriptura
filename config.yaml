@@ -1,0 +1,20 @@
+title: "Yeni Rapor"
+author: "İsminiz"
+date: "YYYY-MM-DD"
+logo: "report/style/cropped-logo-strumenta.webp"
+sections:
+  - "../sections/01-introduction.html"
+  - "../sections/02-methodology.html"
+  - "../sections/03-results.html"
+  - "../sections/04-discussion.html"
+  - "../sections/05-conclusion.html"
+  - "../sections/06-appendix.html"
+
+styles:
+  - "../style/general.css"
+  - "../style/numbering.css"
+  - "../style/footer.css"
+  - "../style/cover.css"
+  - "../style/last-page.css"
+
+output: "report.pdf"

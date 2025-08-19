@@ -30,7 +30,11 @@
       text-align: center;
       position: relative;
     }
-  
+  .cover .logo {
+  width: 140px;     /* boyutu istersen buradan ayarlayabilirsin */
+  display: block;
+  margin: 0 auto 20px auto;  /* ortalar ve altına boşluk bırakır */
+}
     /* Üst sağ: Produced by + logo bloğu */
     .cover .producer {
       position: absolute;
