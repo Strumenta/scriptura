@@ -73,20 +73,21 @@ Requirements:
 ## Usage Examples
 
 - **Create a new report**
-  bash
+  ```bash
   python scriptura.py init demo-report
-  
+  ```
 
 - **Validate structure**
-  bash
+  ```bash
   python scriptura.py lint
-  
+  ```
 
 - **Generate PDF**
-  bash
-  python scriptura.py build
+  ```bash
+  python scriptura.py build 
+  ```
 
 - **Preview in browser**
-  bash
+  ```bash
   python scriptura.py serve
-  
+  ```
