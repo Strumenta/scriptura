@@ -313,7 +313,7 @@ def build(config, out, html_out):
     if out_pdf.exists():
         click.echo(f"✓ PDF written → {out_pdf.relative_to(base_dir)}")
 
-@click.command()
+@cli.command()
 @click.option("--config", default="config.yaml", show_default=True)
 def lint(config):
     """Basit doğrulamalar: sections var mı, sıralama ve <h1> var mı?"""
