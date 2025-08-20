@@ -31,8 +31,7 @@ Scriptura uses CSS themes for consistent design:
 - numbering.css – adds automatic numbering to sections and subsections.  
 - last-page.css – defines the final page (e.g., acknowledgments or closing notes).  
 
-
-    
+.  
 ├── sections/
 │   ├── 01-introduction.html
 │   ├── 02-methodology.html
@@ -70,7 +69,6 @@ Requirements:
 - Python 3.9+  
 - Packages: `click`, `pyyaml`, `jinja2`  
 
----
 
 ## Usage Examples
 
@@ -87,7 +85,6 @@ Requirements:
 - **Generate PDF**
   bash
   python scriptura.py build
-  ```
 
 - **Preview in browser**
   bash
