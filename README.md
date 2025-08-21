@@ -31,7 +31,7 @@ Scriptura uses CSS themes for consistent design:
 - numbering.css – adds automatic numbering to sections and subsections.  
 - last-page.css – defines the final page (e.g., acknowledgments or closing notes).  
 
-.  
+``` 
 ├── sections/
 │   ├── 01-introduction.html
 │   ├── 02-methodology.html
@@ -51,6 +51,7 @@ Scriptura uses CSS themes for consistent design:
 ├── config.yaml
 └── report.html 
 ├── scriptura.py 
+```
 
 ## Installation
 1. Create a virtual environment:
